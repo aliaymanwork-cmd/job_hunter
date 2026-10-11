@@ -1,6 +1,6 @@
 # SOCHUNT — Dubai SOC Job Command Center
 
-A mobile-responsive personal job tracker for SOC Analyst, Incident Response, SIEM, threat detection and cyber defense roles in Dubai/UAE. Built with Next.js, Gemini API and Supabase Auth/Postgres; deployable to Vercel.
+A mobile-responsive personal job tracker for SOC Analyst, Incident Response, SIEM, threat detection and cyber defense roles in Dubai/UAE. Built with Next.js, GroqCloud API and Supabase Auth/Postgres; deployable to Vercel.
 
 ## Supabase setup (use an existing project)
 
@@ -18,7 +18,7 @@ The schema creates only `soc_hunt_jobs` and `soc_hunt_interviews`, indexes and R
 - Email/password sign-up and sign-in using Supabase Auth.
 - Job pipeline: company, role, source, URL, salary, recruiter/contact, notes, next action, status and date; search/filter/edit/delete.
 - Interview tracker with date, stage, format, notes and role-specific AI preparation.
-- Gemini career copilot for mock interviews, incident-response drills, CV/ATS analysis, cover letters, recruiter messages and study plans.
+- Groq AI career copilot for mock interviews, incident-response drills, CV/ATS analysis, cover letters, recruiter messages and study plans.
 - Cloud persistence across devices after signing in with the same account.
 - Responsive desktop/mobile UI.
 - Human-reviewed applications; no silent form submission or CAPTCHA bypass.
@@ -28,13 +28,13 @@ The schema creates only `soc_hunt_jobs` and `soc_hunt_interviews`, indexes and R
 Set these locally in `.env.local` and in Vercel → Project → Settings → Environment Variables:
 
 ```env
-GEMINI_API_KEY=your_google_ai_studio_api_key
-GEMINI_MODEL=gemini-3.8-flash
+GROQ_API_KEY=your_groq_api_key
+GROQ_MODEL=llama-3.3-70b-versatile
 NEXT_PUBLIC_SUPABASE_URL=https://YOUR_PROJECT.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_publishable_or_anon_key
 ```
 
-Keep `GEMINI_API_KEY` server-side. The Supabase publishable/anon key is designed for client use with correctly configured Row Level Security. Never put a Supabase `service_role`/secret key in `NEXT_PUBLIC_` variables. Model availability depends on your Google AI account; if `gemini-3.8-flash` is not available, select a model supported by your API account.
+Keep `GROQ_API_KEY` server-side; never expose it in browser code or a `NEXT_PUBLIC_` variable. Create a Groq API key in the GroqCloud console and add it to Vercel Environment Variables. `GROQ_MODEL` defaults to `llama-3.3-70b-versatile`; choose a model currently available to your Groq account if needed. The Supabase publishable/anon key is designed for client use with correctly configured Row Level Security. Never put a Supabase `service_role`/secret key in `NEXT_PUBLIC_` variables.
 
 ## Run locally
 
@@ -56,7 +56,7 @@ Open http://localhost:3000.
 5. Deploy/redeploy, open the site, create your account, and start adding jobs/interviews.
 
 ## Notes
-- This is a personal tracker, not a job-board scraping service or autonomous auto-submitter. Add vacancies manually; Gemini helps tailor your application materials.
+- This is a personal tracker, not a job-board scraping service or autonomous auto-submitter. Add vacancies manually; Groq AI helps tailor your application materials.
 - Confirm email settings in Supabase Auth. If email confirmation is enabled, verify the sign-up email before signing in.
 - Do not paste confidential employer/client incident data into the AI copilot.
-- Career profile used by Gemini: around 2 years SOC experience; Rapid7 InsightIDR, Wazuh, Sekoia SIEM; alert triage; phishing/malware investigation; threat hunting; IOC/CVE intelligence; MITRE ATT&CK; detection rules and false-positive tuning; log-source/agent integration; incident reporting; client communication; CEH V12; BSc Computer Science.
+- Career profile used by Groq AI: around 2 years SOC experience; Rapid7 InsightIDR, Wazuh, Sekoia SIEM; alert triage; phishing/malware investigation; threat hunting; IOC/CVE intelligence; MITRE ATT&CK; detection rules and false-positive tuning; log-source/agent integration; incident reporting; client communication; CEH V12; BSc Computer Science.
