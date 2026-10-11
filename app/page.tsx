@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useMemo, useState } from 'react';
 import type { FormEvent } from 'react';
-import { Activity, ArrowUpRight, BriefcaseBusiness, CalendarDays, CheckCircle2, CirclePlus, FileText, Gauge, MapPin, MessageSquareText, Search, ShieldAlert, Sparkles, Trash2, TrendingUp, X, LogOut, Cloud, LoaderCircle } from 'lucide-react';
+import { Activity, ArrowUpRight, BriefcaseBusiness, CalendarDays, CheckCircle2, CirclePlus, FileText, Gauge, MapPin, MessageSquareText, Search, ShieldAlert, Sparkles, Target, Trash2, TrendingUp, X, LogOut, Cloud, LoaderCircle } from 'lucide-react';
 import type { User } from '@supabase/supabase-js';
 import { getSupabase } from '../lib/supabase';
 
