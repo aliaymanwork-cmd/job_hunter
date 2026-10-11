@@ -72,3 +72,16 @@ The refresh endpoint uses Adzuna when `ADZUNA_APP_ID` and `ADZUNA_APP_KEY` are c
 
 ### Deploy
 Set `GROQ_API_KEY`, `GROQ_MODEL`, `NEXT_PUBLIC_SUPABASE_URL`, and `NEXT_PUBLIC_SUPABASE_ANON_KEY` as before. Optional Adzuna variables broaden the live job search. Redeploy after changing environment variables.
+
+## Daily SOC Interview Practice
+
+SOCHUNT includes an **Interview practice** menu with a 1,000-item question bank spanning SIEM triage, phishing, EDR/malware, incident response, networking, threat hunting, MITRE ATT&CK, identity/cloud, vulnerability management, and SOC operations. It is built from 100 core answer guides framed across 10 operational contexts.
+
+- Daily session target: 40 unseen questions + 10 review questions (previously missed questions are prioritised).
+- One question is shown at a time. Type an answer and submit it before the model answer is revealed.
+- Correct answers earn 1 point; incorrect answers earn 0 and show a model answer plus feedback.
+- Progress, completed question IDs, and mistakes are stored in browser localStorage. They are per-browser and are not synced to Supabase.
+- Answer grading uses the configured Groq model through `/api/interview-practice`; `GROQ_API_KEY` and `GROQ_MODEL` should already be configured for the AI features.
+- On the first day, there is no prior history to repeat, so the review slots are filled with additional practice questions. Subsequent sessions draw from previously completed questions, prioritising mistakes.
+
+The AI examiner grades technical meaning rather than exact wording, but automated grading can make mistakes. Review the expected answer and use your judgement, especially for incident-response decisions.
