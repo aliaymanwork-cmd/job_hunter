@@ -60,3 +60,15 @@ Open http://localhost:3000.
 - Confirm email settings in Supabase Auth. If email confirmation is enabled, verify the sign-up email before signing in.
 - Do not paste confidential employer/client incident data into the AI copilot.
 - Career profile used by Groq AI: around 2 years SOC experience; Rapid7 InsightIDR, Wazuh, Sekoia SIEM; alert triage; phishing/malware investigation; threat hunting; IOC/CVE intelligence; MITRE ATT&CK; detection rules and false-positive tuning; log-source/agent integration; incident reporting; client communication; CEH V12; BSc Computer Science.
+
+
+## Added features
+- Structured Groq AI responses rendered as headings and lists.
+- Editable resume builder with print-to-PDF (choose **Save as PDF** in your browser print dialog).
+- New Openings page with refresh, source links, and one-click save into the existing `soc_hunt_jobs` pipeline.
+
+### Job openings feed
+The refresh endpoint uses Adzuna when `ADZUNA_APP_ID` and `ADZUNA_APP_KEY` are configured in Vercel. Without those credentials it falls back to a public job-board feed and filters for relevant roles and UAE/Dubai/remote locations; the fallback may return few or no matching roles. Never treats generated AI suggestions as verified vacancies.
+
+### Deploy
+Set `GROQ_API_KEY`, `GROQ_MODEL`, `NEXT_PUBLIC_SUPABASE_URL`, and `NEXT_PUBLIC_SUPABASE_ANON_KEY` as before. Optional Adzuna variables broaden the live job search. Redeploy after changing environment variables.
